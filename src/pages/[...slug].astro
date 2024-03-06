@@ -1,0 +1,54 @@
+---
+import type { CollectionEntry } from "astro:content";
+import Page from "@/templates/zh/Page.astro";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog");
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: post,
+  }));
+}
+
+export type Props = CollectionEntry<"blog">;
+import { toSupportedImage } from "@/scripts/open-graph";
+const post = Astro.props;
+let Content; //  = (() => <p>渲染失败</p>)()
+try {
+  Content = (await post.render()).Content;
+} catch (e) {
+  console.error(e);
+  throw e;
+}
+
+let title = post.data.title;
+if (post.data.categories?.includes("译文")) {
+  title = `（译）${title}`;
+}
+const metas: { [key: string]: string } = post.data.categories?.includes(
+  "Tonsky"
+)
+  ? {
+      viewport: "width=640",
+      "theme-color": "hsl(51, 100%, 59%)",
+    }
+  : {
+      "theme-color": "#111",
+    };
+Astro.locals.noscript = post.data.noscript;
+---
+
+<Page
+  title={title}
+  og={{
+    title,
+    description: post.data.description ?? "新世界的大门",
+    image: post.data.photo ? toSupportedImage(post.data.photo) : undefined,
+    url: `https://blog.xinshijiededa.men/${post.slug}`,
+  }}
+  metas={metas}
+  source={`https://github.com/OverflowCat/blog/blob/src/src/content/blog/${post.id}?plain=1`}
+>
+  <Content />
+</Page>

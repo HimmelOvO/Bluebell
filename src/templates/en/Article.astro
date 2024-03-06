@@ -1,0 +1,40 @@
+---
+import Page from "../en/Page.astro";
+const { title, noscript, bar_index } = Astro.props.frontmatter;
+import Paper from "@/components/Paper.astro";
+import "@/styles/a.less";
+Astro.locals.noscript = noscript;
+---
+
+<Page title={title} bar={{ index: bar_index }}>
+  <Paper padding>
+    <article id="post" lang="en">
+      <slot />
+    </article>
+  </Paper>
+</Page>
+
+<style>
+  article {
+    font-family: Tahoma, sans-serif;
+    font-size: 120%;
+    text-align: left;
+    max-width: 700px;
+    margin: auto;
+    line-height: 200%;
+    padding-left: 32px;
+    padding-right: 28px;
+    line-height: 200%;
+  }
+  footer {
+    margin-block-start: 32px;
+    margin-block-end: 32px;
+  }
+</style>
+
+<style is:global>
+  .paper {
+    max-width: 900px;
+    margin: auto;
+  }
+</style>

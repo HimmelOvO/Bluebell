@@ -1,0 +1,129 @@
+---
+export interface Props {
+  title: string;
+  metas?: {
+    [key: string]: string;
+  };
+}
+
+let { title, metas } = Astro.props;
+
+if (!metas?.viewport) {
+  if (!metas) metas = {};
+  metas["viewport"] = "width=device-width, initial-scale=1.0";
+}
+metas["generator"] = Astro.generator;
+// import "modern-css-reset";
+
+import "@/styles/han.less";
+import "@/styles/monospace.less";
+import "@/styles/snowflakes.scss";
+// import { ViewTransitions } from "astro:transitions";
+---
+
+<!doctype html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8" />
+    {
+      metas &&
+        Object.entries(metas).map(([key, value]) => (
+          <meta name={key} content={value} />
+        ))
+    }
+    <title>{title}</title>
+    <link
+      rel="icon"
+      type="image/png"
+      data-licence="Twemoji CC-BY 4.0"
+      href="https://user-images.githubusercontent.com/20166026/235318317-7fb2fe2f-ebd9-4e20-b24a-474611e3738f.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="https://user-images.githubusercontent.com/20166026/235318317-7fb2fe2f-ebd9-4e20-b24a-474611e3738f.png"
+    />
+    <link rel="prefetch" href="/" />
+    <link rel="prefetch" href="/about/" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+  </head>
+  <body>
+    <div class="snowflakes">
+      {
+        Array(100)
+          .fill(0)
+          .map((_, i) => <div class="snow" />)
+      }
+    </div>
+    <slot />
+    <style is:global lang="less">
+      .snowflakes {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        pointer-events: none;
+        z-index: 999;
+        background: rgba(0, 0, 0, 0.08);
+        overflow: hidden;
+      }
+
+      :root {
+        --accent-color: rgb(0, 0, 0);
+      }
+
+      html {
+        background-color: var(--html-bg-color, white);
+      }
+
+      body {
+        margin: 0px;
+        padding: 0px;
+        position: relative;
+      }
+
+      h1 {
+        text-align: center;
+      }
+
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        text-align: start;
+      }
+
+      ::selection {
+        background-color: rgba(37, 37, 37, 0.85);
+        color: #fff;
+      }
+
+      pre,
+      code {
+        font-family: "更纱等距黑体", "Fira Code", "FiraCode NF",
+          "Noto Sans CJK Mono SC", "Source Code Pro", consolas, monospace;
+      }
+
+      figure {
+        margin: 2em 0;
+      }
+
+      details > summary {
+        padding-inline: 1em;
+        padding-block: 5px;
+        transition: background-color 0.1s ease-in-out;
+        &:hover {
+          background-color: rgba(0, 0, 0, 0.05);
+          cursor: s-resize;
+          &[open] {
+            cursor: n-resize;
+          }
+        }
+        &:active {
+          background-color: rgba(0, 0, 0, 0.1);
+        }
+      }
+    </style>
+  </body>
+</html>

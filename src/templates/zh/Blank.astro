@@ -1,0 +1,18 @@
+---
+export interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="sitemap" href="/sitemap-index.xml" />
+</head>
+<slot />
+<style is:global>
+  main {
+    font-family: "Noto Sans SC", "Noto Sans CJK SC", system-ui, sans-serif;
+  }
+</style>

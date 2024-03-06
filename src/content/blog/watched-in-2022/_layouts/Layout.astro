@@ -1,0 +1,31 @@
+---
+export interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<head>
+  <meta charset="utf-8" />
+  <meta title={title} />
+</head>
+<slot />
+<style is:global>
+  :root {
+    --accent: 124, 58, 237;
+    --accent-gradient: linear-gradient(
+      45deg,
+      rgb(var(--accent)),
+      #6ec8f891 30%,
+      rgb(255, 255, 255) 60%
+    );
+  }
+  main {
+    font-family: "Noto Sans SC", "Noto Sans CJK SC", system-ui, sans-serif;
+  }
+  /* Hide Hexo title in article */
+  h1.post-title {
+    display: none;
+  }
+</style>

@@ -1,0 +1,21 @@
+---
+import { getCatsInfo } from "@/scripts/tags";
+import ArticleList from "@/components/ArticleList.astro";
+
+export async function getStaticPaths() {
+    const categories = Array.from(getCatsInfo()).map(
+        ([category, _count]) => category
+    );
+    const res = categories.map((category) => ({ params: { category } }));
+    return res;
+}
+
+const { category } = Astro.params;
+---
+
+<ArticleList
+    type="category"
+    name={category}
+    simple={false}
+    title={`标签：${category}`}
+/>

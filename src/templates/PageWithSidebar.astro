@@ -1,0 +1,78 @@
+---
+import Page from "@templates/zh/Page.astro";
+import Sidebar from "@/components/sidebar/Index.astro";
+import Paper from "@/components/Paper.astro";
+import "modern-css-reset";
+import type { OpenGraphData } from "@/scripts/open-graph";
+import Bar from "./Bar.astro";
+
+export interface Props {
+  title: string;
+  bar?: {
+    index?: number;
+    transparent?: boolean;
+  };
+  og?: OpenGraphData;
+}
+
+const { title, bar, og } = Astro.props;
+Astro.locals.noscript = true;
+---
+
+<Page title={title} og={og}>
+  <Bar {...bar} lang="zh-Hans" />
+
+  <main>
+    <Sidebar />
+    <Paper>
+      <section class="contents">
+        <slot />
+      </section>
+    </Paper>
+  </main>
+</Page>
+
+<style>
+  main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+  }
+  .contents {
+    max-width: 850px;
+    width: 100%;
+    padding: 0 20px;
+  }
+</style>
+
+<style is:global>
+  @media (max-width: 900px) {
+    main {
+      flex-direction: column-reverse;
+    }
+    aside#sidebar {
+      max-width: 700px !important;
+      flex-direction: column-reverse !important;
+    }
+    aside#sidebar .paper {
+      max-width: 700px !important;
+    }
+  }
+  @media (min-width: 900px) {
+    .contents {
+      min-width: 700px;
+    }
+    main {
+      flex-direction: row;
+    }
+    aside#sidebar {
+      align-self: flex-start;
+      position: sticky;
+      top: 50px;
+    }
+    .paper {
+      align-self: start;
+    }
+  }
+</style>

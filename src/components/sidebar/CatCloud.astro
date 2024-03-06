@@ -1,0 +1,31 @@
+---
+import { getCatsInfo } from "@/scripts/tags";
+import "@/styles/tag-cloud.less";
+
+function generateRandomColor() {
+  const MAX_RGB_VALUE = 135;
+  const MIN_RGB_VALUE = 35;
+  const [r, g, b] = ["r", "g", "b"].map(
+    () =>
+      Math.floor(Math.random() * (MAX_RGB_VALUE - MIN_RGB_VALUE)) +
+      MIN_RGB_VALUE
+  );
+  return `rgb(${r}, ${g}, ${b})`;
+}
+---
+
+<div class="tag-cloud">
+  {
+    Array.from(getCatsInfo()).map(([k, v]) => (
+      <a
+        href={`/categories/${k}`}
+        style={`font-size: ${Math.min(
+          21,
+          1.8 * v + 13 - k.length / 3
+        )}px; color: ${generateRandomColor()}`}
+      >
+        {k}
+      </a>
+    ))
+  }
+</div>

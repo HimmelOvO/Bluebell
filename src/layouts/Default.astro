@@ -1,0 +1,38 @@
+---
+import Paper from "@/components/FakePaper.astro";
+import "@/styles/icon.less";
+import Comments from "@/components/comments/Comments.astro";
+import "@/styles/snowy.css";
+import Common from "./Common.astro";
+
+const { frontmatter } = Astro.props;
+import Bar from "@/templates/Bar.astro";
+---
+
+<Bar theme="light" lang="zh-Hans" />
+<Paper padding={true} paper={frontmatter.paper !== false} classes={["snowy"]}>
+  <Common frontmatter={frontmatter}>
+    <slot />
+  </Common>
+</Paper>
+
+<section id="comments">
+  <Paper padding={true} paper={true}>
+    <Comments />
+  </Paper>
+</section>
+
+<style is:global lang="less">
+  :root {
+    color-scheme: light;
+  }
+  .paper {
+    max-inline-size: 1024px;
+    margin: auto;
+    overflow-x: hidden;
+  }
+
+  section#comments {
+    margin-block: 1em;
+  }
+</style>
