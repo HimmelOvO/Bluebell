@@ -25,7 +25,7 @@ export async function GET(context: any) {
   });
   return rss({
     // `<title>` field in output xml
-    title: "新世界的大门",
+    title: "三十三年流星雨",
     // `<description>` field in output xml
     description: "因此幻想是世界，谁若懂得，谁就会歌唱",
     // Pull in your project "site" from the endpoint context

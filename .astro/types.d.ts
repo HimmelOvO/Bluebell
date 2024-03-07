@@ -136,13 +136,6 @@ declare module 'astro:content' {
 
 	type ContentEntryMap = {
 		"blog": {
-"astro/migration.mdx": {
-	id: "astro/migration.mdx";
-  slug: "astro/migration";
-  body: string;
-  collection: "blog";
-  data: InferEntrySchema<"blog">
-} & { render(): Render[".mdx"] };
 "syncthing.mdx": {
 	id: "syncthing.mdx";
   slug: "syncthing";
@@ -153,13 +146,6 @@ declare module 'astro:content' {
 "weekly/0x01/index.mdx": {
 	id: "weekly/0x01/index.mdx";
   slug: "weekly/0x01";
-  body: string;
-  collection: "blog";
-  data: InferEntrySchema<"blog">
-} & { render(): Render[".mdx"] };
-"weekly/0x02.mdx": {
-	id: "weekly/0x02.mdx";
-  slug: "weekly/0x02";
   body: string;
   collection: "blog";
   data: InferEntrySchema<"blog">

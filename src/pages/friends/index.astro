@@ -6,8 +6,8 @@ import Stroke from "./_components/Stroke.astro";
 import Pn from "@/components/Pn.astro";
 import { Code } from "astro:components";
 
-const EXAMPLE = `title: 新世界的大门
-href: https://blog.xinshijiededa.men
+const EXAMPLE = `title: HimmelOvO
+href: https://himmelovo.netlify.app
 avatar: # (多种格式可选)
   https://raw.githubusercontent.com/OverflowCat/blog/test_a/imgs/avatar/xni.webp
   https://raw.githubusercontent.com/OverflowCat/blog/test_a/imgs/avatar/xni.svg
@@ -16,139 +16,23 @@ avatar: # (多种格式可选)
 description: # (多个可选，如果放不下可以用短的)
   zh-hans: 因此幻想是世界，谁若懂得，谁就会歌唱
   en: So fancy is the world, who knows, maybe they sing
-  zh-hant: 悟已往之不諫，知來者之可追`;
+  zh-hant: 人生五十年,如梦亦如幻`;
 
 Astro.locals.noscript = true;
 ---
 
 <!-- 2022-11-24 19:15:00 -->
 <Layout title="友链">
-  <h1>猫猫的<span class="text-gradient">朋友们</span></h1>
+  <h1>Himmel的<span class="text-gradient">朋友们</span></h1>
   <p class="info">可爱喵！以下友链按添加的时间顺序排列。</p>
   <ul role="list" class="link-card-grid">
     <Card
-      link="blog.hongdou.dev"
-      title="红豆的猫窝"
+      link="himmelovo.fun"
+      title="葬送的芙莉莲"
       avatar="//telegra.ph/file/2d55a0dadc16a08c3f652.png"
-    >
-      <del>
-        <Color color="rgb(245, 169, 184)">粉</Color><Color
-          color="rgb(91, 206, 250)"
-        >
-          蓝
-        </Color><Stroke><Color color="#FFF">白</Color></Stroke></del
-      ><Color color="red">红</Color>豆豆
-    </Card>
-    <Card
-      link="bersella-ai.cc"
-      title="Bersella AI"
-      avatar="//bersella-ai.cc/uploads/avatar.png"
-      desc="My memories & dreams"
-    />
-
-    <Card
-      link="rkm.mx"
-      title="/rkm/ Rikumi"
-      avatar="//avatars.githubusercontent.com/u/5051300?v=4"
       desc="Can you hear me?"
     >
-      也是页面仔的梨咕米
-    </Card>
-    <Card
-      link="ray-eldath.me"
-      title="Ray Eldath"
-      avatar="//telegra.ph/file/e2aca16b28236a5d3d456.png"
-    >
-      寒寒！
-    </Card>
-    <Card
-      link="lemonhx.moe"
-      title="LemonHX"
-      avatar="//avatars.githubusercontent.com/u/35558393?v=4"
-    >
-      柠檬🍋
-    </Card>
-    <Card
-      link="cynosura.one"
-      title="楓々"
-      avatar="//cynosura.one/img/avatar.webp"
-    >
-      熊熊
-    </Card>
-    <Card
-      link="umrpowered.codeberg.page"
-      title="U.M.R Powered"
-      avatar="//umrpowered.codeberg.page/assets/avatars/ai-generated-maid.webp"
-      desc="因「U.M.R Powered」希望被搜索引擎顺利检索而搭建起来的简单博客"
-    >
-      稳如<Pn>永仪</Pn>的 UMR 猫猫（
-    </Card>
-    <Card
-      link="littleqiu.net"
-      title="DreamCity"
-      avatar="//www.littleqiu.net/images/Avatar.png"
-      desc="迷惘少年的梦想世界"
-    />
-    <Card
-      link="hly0928.com"
-      title="Steven's Blog"
-      avatar="//blog.hly0928.com/images/avatar.png"
-      desc="悟已往之不諫，知來者之可追"
-    >
-      可恶喵，竟然和我用一样的签名档😤
-    </Card>
-    <Card
-      link="liuqiran.com"
-      title="刘其然的部落格"
-      avatar="//avatars.githubusercontent.com/u/113300968?v=4"
-      desc="Liu Qiran's Blog"
-    />
-    <Card
-      link="blog.wws0629.com"
-      title="淼表"
-      avatar="//blog.wws0629.com/imgs/wws.png"
-      desc="寄蜉蝣于天地 渺沧海之一粟"
-    />
-    <Card
-      title="dpkg123 的博客"
-      link="dpkg123.site"
-      avatar="//dpkg123.site/favicon.jpg"
-      desc="路漫漫其修远兮，吾将上下而求索。"
-    />
-    <Card
-      title="VitalyR"
-      link="vitalyr.com"
-      avatar="//avatars.githubusercontent.com/u/24508452"
-      desc="长天高远，星月粲然"
-    >
-      虚宝
-    </Card>
-    <Card
-      link="cronfox.2434.me"
-      title="CronfoxLabs"
-      avatar="//assets.2434.me/img/avatar/avatar-256x-256c.png"
-      desc='<span lang="ja">何がここまであなたをうごかすの？</span>'
-    />
-    <Card
-      link="www.yunyitang.me/zh/"
-      title="Yunyi's Blog"
-      avatar="https://www.yunyitang.me/img/Avatar.png"
-      desc="<span lang='en'>Little squirrel Hopping around</span>"
-    />
-    <Card
-      link="laoshubaby.moe"
-      title="布丁天堂"
-      avatar="//github.com/laoshubaby.png"
-      desc=""
-    >
-      老鼠宝子
-    </Card>
-    <Card
-      link="with.fish"
-      title="鱼类观测研究所"
-      avatar="//avatars.githubusercontent.com/u/32504382?v=4"
-      desc="<span lang='en'>selfish saltfish.</span>"
-    />
+      <del>
   </ul>
 
   <h1>交换友链</h1>
@@ -179,10 +63,10 @@ Astro.locals.noscript = true;
       which<br />renders as
     </li>
     <Card
-      link="blog.xinshijiededa.men"
-      title="新世界的大门"
+      link="himmelovo.netlify.app"
+      title="Himmel"
       avatar="//raw.githubusercontent.com/OverflowCat/blog/test_a/imgs/avatar/xni.webp"
-      desc='<span lang="zh-hant">悟已往之不諫，知來者之可追</span>'
+      desc='<span lang="zh-hant">人生五十年,如梦亦如幻</span>'
     >
       你可以在 <code>desc</code> 中使用 HTML。不提供 <code>desc</code>
       的话，我会帮你写一句的（

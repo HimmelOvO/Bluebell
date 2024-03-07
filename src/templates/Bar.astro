@@ -8,12 +8,11 @@ export interface Props {
 import Logo from "@components/Logo.astro";
 import slogans from "@scripts/slogans.ts";
 import { pick } from "@/scripts/serendipity";
-
+//["订阅", "RSS", "/atom.xml"],
+//["友链", "Friends", "/friends"],
 const items = [
   ["主页", "Home", "/"],
   ["归档", "Archives", "/archives"],
-  ["友链", "Friends", "/friends"],
-  ["订阅", "RSS", "/atom.xml"],
   ["关于", "About", "/about"],
 ];
 let { index, theme, lang } = Astro.props;
