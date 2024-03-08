@@ -10,7 +10,7 @@ import "@/styles/icon.less";
 const { source } = Astro.props;
 console.log("footer", Astro.locals);
 const noscript = Astro.locals.noscript;
-const githubLink = source ? source : "https://github.com/OverflowCat/blog";
+const githubLink = source ? source : "https://github.com/HimmelOvO/Bluebell";
 const slug =
   Astro.url.pathname.replace(/^[/]/, "").replace(/[/]$/, "") || "index";
 ---
@@ -21,17 +21,9 @@ const slug =
       loading="eager"
       height="75"
       width="238"
-      src="https://moe-counter.glitch.me/get/@xinshijiededamen?theme=gelbooru"
+      src="https://moe-counter.glitch.me/get/@HimmelOvO?theme=gelbooru"
       alt="全站用户访问计数器"
     />
-    <div>
-      <img
-        style="display: inline;"
-        loading="eager"
-        src=`https://count.xinshijiededa.men/${slug}/page-count.svg`
-        alt="当前页面用户访问计数器"
-      />
-    </div>
     {noscript && <Noscript />}
     <div data-build={Date.now()}>
       Built with <a href="https://astro.build/"

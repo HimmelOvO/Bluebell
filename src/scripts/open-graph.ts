@@ -1,3 +1,4 @@
+//缩放图 Logo
 export interface OpenGraphData {
   title: string;
   description: string;
@@ -6,12 +7,12 @@ export interface OpenGraphData {
   type?: string;
 }
 
-export type PathToSupportedImage = `${string}.${"png" | "jpg" | "jpeg"}`;
+export type PathToSupportedImage = `${string}.${"png" | "jpg" | "jpeg" | "webp"}`;
 export function toSupportedImage(s: string): PathToSupportedImage {
   if (/ /.test(s)) {
     s = s.split(" ")[0]
   }
-  if (s.endsWith(".png") || s.endsWith(".jpg") || s.endsWith(".jpeg")) {
+  if (s.endsWith(".png") || s.endsWith(".jpg") || s.endsWith(".jpeg") || s.endsWith(".webp")) {
     return s as PathToSupportedImage;
   }
   throw new Error("Unsupported image format");
